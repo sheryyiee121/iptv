@@ -1,0 +1,1 @@
+const r="19433009678",o="Hi! I'm interested in your IPTV / Firestick packages. Can you help me?";function s(n=o){const e=new URLSearchParams({phone:r}),t=typeof n=="string"?n.trim():"";return t&&e.set("text",t),`https://api.whatsapp.com/send?${e.toString()}`}function a(n){const e=s(n||o);window.open(e,"_blank","noopener,noreferrer")}export{o as D,s as g,a as o};
