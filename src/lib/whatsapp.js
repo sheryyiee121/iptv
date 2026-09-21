@@ -2,7 +2,7 @@
  * WhatsApp Click-to-Chat (no server required)
  * @see https://developers.facebook.com/docs/whatsapp/click-to-chat
  */
-export const WHATSAPP_PHONE_E164 = '447877815180'
+export const WHATSAPP_PHONE_E164 = '19433009678'
 
 export const DEFAULT_WHATSAPP_MESSAGE =
   "Hi! I'm interested in your IPTV / Firestick packages. Can you help me?"

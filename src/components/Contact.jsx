@@ -56,7 +56,7 @@ export default function Contact() {
             </p>
             <div className="space-y-6">
               {[
-                { icon: Phone, label: 'WhatsApp / Phone', value: '+447877815180', href: 'tel:+447877815180' },
+                { icon: Phone, label: 'WhatsApp / Phone', value: '+19433009678', href: 'tel:+19433009678' },
                 { icon: Mail, label: 'Email', value: 'muhammad.sherazz932@gmail.com', href: 'mailto:muhammad.sherazz932@gmail.com' },
                 { icon: MapPin, label: 'Location', value: 'United Kingdom', href: null },
               ].map((item, i) => (

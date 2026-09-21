@@ -15,8 +15,8 @@ export default function Navbar() {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-black/95 backdrop-blur-xl shadow-[0_4px_30px_rgba(14,165,233,0.08)]' : 'bg-transparent'}`}>
       <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12">
         <div className="hidden md:flex items-center justify-end gap-6 py-2 text-xs text-gray-500 border-b border-white/5">
-          <a href="tel:+447877815180" className="flex items-center gap-1.5 hover:text-sky-400 transition-colors">
-            <Phone size={11} /> +447877815180
+          <a href="tel:+19433009678" className="flex items-center gap-1.5 hover:text-sky-400 transition-colors">
+            <Phone size={11} /> +19433009678
           </a>
           <a href="mailto:muhammad.sherazz932@gmail.com" className="flex items-center gap-1.5 hover:text-sky-400 transition-colors">
             <Mail size={11} /> muhammad.sherazz932@gmail.com
