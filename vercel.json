@@ -1,5 +1,7 @@
 {
-    "framework": "vite",
     "buildCommand": "npm run build",
-    "outputDirectory": "out"
+    "outputDirectory": "out",
+    "installCommand": "npm install",
+    "framework": "vite",
+    "nodeVersion": "22"
 }
