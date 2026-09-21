@@ -8,6 +8,7 @@ import {
   keywordsMetaContent,
   ALL_SEO_KEYWORDS,
 } from '../seo/seoConfig'
+import { blogPosts } from '../data/blogPosts'
 
 function upsertMeta(attrName, key, content) {
   let el = document.querySelector(`meta[${attrName}="${key}"]`)
@@ -52,6 +53,20 @@ export default function SeoHead() {
 
     upsertLink('canonical', SITE_URL + '/')
 
+    const blogSchemas = blogPosts.map((post) => ({
+      '@type': 'BlogPosting',
+      headline: post.title,
+      description: post.desc,
+      image: post.img,
+      datePublished: post.date,
+      author: { '@type': 'Organization', name: SITE_NAME },
+      publisher: { '@type': 'Organization', name: SITE_NAME, url: `${SITE_URL}/` },
+      mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/#blog-${post.slug}` },
+      keywords: post.keywords.join(', '),
+      inLanguage: 'en-GB',
+      url: `${SITE_URL}/#blog-${post.slug}`,
+    }))
+
     const jsonLd = {
       '@context': 'https://schema.org',
       '@graph': [
@@ -79,6 +94,15 @@ export default function SeoHead() {
           isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: `${SITE_URL}/` },
           keywords: ALL_SEO_KEYWORDS.join(', '),
         },
+        {
+          '@type': 'Blog',
+          name: 'IPTV Packages UK Guides',
+          description: 'UK IPTV guides for Fire Stick, Sky Glass, Sky Sports, and premium streaming packages.',
+          url: `${SITE_URL}/#blog`,
+          inLanguage: 'en-GB',
+          blogPost: blogSchemas,
+        },
+        ...blogSchemas,
       ],
     }
 

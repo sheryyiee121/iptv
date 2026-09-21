@@ -1,14 +1,20 @@
+import { lazy, Suspense } from 'react'
 import SeoHead from './components/SeoHead'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import Trending from './components/Trending'
-import Features from './components/Features'
-import FireStick from './components/FireStick'
-import Pricing from './components/Pricing'
-import Blog from './components/Blog'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
-import FloatingWhatsApp from './components/FloatingWhatsApp'
+
+const Trending = lazy(() => import('./components/Trending'))
+const Features = lazy(() => import('./components/Features'))
+const FireStick = lazy(() => import('./components/FireStick'))
+const Pricing = lazy(() => import('./components/Pricing'))
+const Blog = lazy(() => import('./components/Blog'))
+const Contact = lazy(() => import('./components/Contact'))
+const Footer = lazy(() => import('./components/Footer'))
+const FloatingWhatsApp = lazy(() => import('./components/FloatingWhatsApp'))
+
+function SectionFallback() {
+  return <div className="min-h-[200px]" aria-hidden="true" />
+}
 
 function App() {
   return (
@@ -16,14 +22,16 @@ function App() {
       <SeoHead />
       <Navbar />
       <Hero />
-      <Trending />
-      <Features />
-      <FireStick />
-      <Pricing />
-      <Blog />
-      <Contact />
-      <Footer />
-      <FloatingWhatsApp />
+      <Suspense fallback={<SectionFallback />}>
+        <Trending />
+        <Features />
+        <FireStick />
+        <Pricing />
+        <Blog />
+        <Contact />
+        <Footer />
+        <FloatingWhatsApp />
+      </Suspense>
     </div>
   )
 }

@@ -3,7 +3,7 @@
  * Note: Google ignores meta keywords; Bing may use lightly. Title + description + body copy matter most.
  */
 
-export const SITE_URL = 'https://www.firestickpackagesstore.uk'
+export const SITE_URL = 'https://quicktvpackages.co.uk'
 export const SITE_NAME = 'Firestick Packages Store UK'
 
 /** Unique search phrases from your Wordstream list (deduped; noisy duplicates removed) */
@@ -38,6 +38,8 @@ export const RESEARCH_KEYWORDS = [
 /** Service / intent keywords — natural SEO, not stuffing */
 export const SERVICE_KEYWORDS = [
   'IPTV UK',
+  'IPTV packages UK',
+  'best IPTV UK',
   'Fire Stick packages',
   'Amazon Fire TV',
   'Fire TV Stick 4K',
@@ -47,15 +49,41 @@ export const SERVICE_KEYWORDS = [
   'Sky Sports IPTV',
   'premium IPTV subscription',
   'Firestick IPTV',
+  'Amazon Fire Stick IPTV',
+  'Sky Glass IPTV',
+  'Sky Glass streaming',
+  '8K streaming UK',
+  '8K IPTV',
+  '4K 8K TV subscription',
+  'Sky Glass 4K',
+  'Sky Glass 8K',
+  'Firestick Sky Glass',
+  'UK IPTV packages',
+  'IPTV subscription UK',
+  'Fire Stick IPTV setup',
+  'IPTV vs cable UK',
+  'FIFA World Cup 2026',
+  'FIFA World Cup UK',
+  'watch FIFA World Cup UK',
+  'FIFA World Cup IPTV',
+  'FIFA World Cup Fire Stick',
+  'FIFA live stream UK',
+  'World Cup streaming UK',
+  'World Cup IPTV UK',
+  'FIFA World Cup streaming',
+  'England World Cup 2026',
+  'FIFA football IPTV UK',
+  'World Cup Fire Stick UK',
+  'FIFA IPTV packages UK',
 ]
 
 export const ALL_SEO_KEYWORDS = [...new Set([...RESEARCH_KEYWORDS, ...SERVICE_KEYWORDS])]
 
 export const SEO_TITLE =
-  'Amazon Fire Stick & Fire TV Stick UK | IPTV Packages | Fire Stick Streaming'
+  'Firestick & Sky Glass IPTV UK | 4K 8K Streaming | Fire TV Stick Packages'
 
 export const SEO_DESCRIPTION =
-  'UK Fire Stick & Amazon Fire TV Stick IPTV packages: 28,000+ channels, 4K, sports & movies. Fire TV, Fire TV Stick, Amazon TV — instant setup & UK support.'
+  'UK Firestick & Sky Glass IPTV packages: 28,000+ channels in 4K & 8K Ultra HD. Amazon Fire Stick, Fire TV Stick 4K, Sky Glass — sports, movies, instant setup & UK support.'
 
 export const OG_IMAGE =
   'https://images.unsplash.com/photo-1593784991095-a205069470b6?w=1200&q=80'
