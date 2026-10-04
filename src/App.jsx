@@ -34,7 +34,7 @@ function PageLayout({ children }) {
 }
 
 function App() {
-  const path = window.location.pathname;
+  const path = window.location.pathname.replace(/\/$/, "") || "/";
 
   if (path === '/blog') {
     return (
