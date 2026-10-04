@@ -13,62 +13,76 @@ const Contact = lazy(() => import('./components/Contact'))
 const Footer = lazy(() => import('./components/Footer'))
 const FloatingWhatsApp = lazy(() => import('./components/FloatingWhatsApp'))
 const Setup = lazy(() => import('./components/Setup'))
+const FAQ = lazy(() => import('./components/FAQ'))
 
 function SectionFallback() {
   return <div className="min-h-[200px]" aria-hidden="true" />
 }
 
+function PageLayout({ children }) {
+  return (
+    <div className="w-full min-h-screen bg-[#0a0a0a] text-white antialiased overflow-x-hidden">
+      <SeoHead />
+      <Navbar />
+      <Suspense fallback={<SectionFallback />}>
+        {children}
+        <Footer />
+        <FloatingWhatsApp />
+      </Suspense>
+    </div>
+  );
+}
+
 function App() {
   const path = window.location.pathname;
 
-  // Blog Page Route
   if (path === '/blog') {
     return (
-      <div className="w-full min-h-screen bg-[#0a0a0a] text-white antialiased overflow-x-hidden">
-        <SeoHead />
-        <Navbar />
-        <Suspense fallback={<SectionFallback />}>
-          <div className="pt-24 min-h-[70vh]">
-            <Blog />
-          </div>
-          <Footer />
-          <FloatingWhatsApp />
-        </Suspense>
-      </div>
+      <PageLayout>
+        <div className="pt-24 min-h-[70vh]">
+          <Blog />
+        </div>
+      </PageLayout>
     )
   }
 
-  // Pricing Page Route
   if (path === '/pricing') {
     return (
-      <div className="w-full min-h-screen bg-[#0a0a0a] text-white antialiased overflow-x-hidden">
-        <SeoHead />
-        <Navbar />
-        <Suspense fallback={<SectionFallback />}>
-          <div className="pt-16 min-h-[70vh]">
-            <Pricing />
-          </div>
-          <Footer />
-          <FloatingWhatsApp />
-        </Suspense>
-      </div>
+      <PageLayout>
+        <div className="pt-16 min-h-[70vh]">
+          <Pricing />
+        </div>
+      </PageLayout>
     )
   }
 
-  // Setup Page Route
   if (path === '/setup') {
     return (
-      <div className="w-full min-h-screen bg-[#0a0a0a] text-white antialiased overflow-x-hidden">
-        <SeoHead />
-        <Navbar />
-        <Suspense fallback={<SectionFallback />}>
-          <div className="pt-16 min-h-[70vh]">
-            <Setup />
-          </div>
-          <Footer />
-          <FloatingWhatsApp />
-        </Suspense>
-      </div>
+      <PageLayout>
+        <div className="pt-16 min-h-[70vh]">
+          <Setup />
+        </div>
+      </PageLayout>
+    )
+  }
+
+  if (path === '/faq') {
+    return (
+      <PageLayout>
+        <div className="pt-16 min-h-[70vh]">
+          <FAQ />
+        </div>
+      </PageLayout>
+    )
+  }
+
+  if (path === '/contact') {
+    return (
+      <PageLayout>
+        <div className="pt-16 min-h-[70vh]">
+          <Contact />
+        </div>
+      </PageLayout>
     )
   }
 
