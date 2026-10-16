@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Flame, Phone, Mail } from 'lucide-react';
 
 const navLinks = [
@@ -25,17 +25,13 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ type: "spring", stiffness: 100, damping: 20 }}
+      <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'pt-4 px-4 sm:px-6' : 'pt-0 px-0'
           }`}
       >
-        {/* Top Contact Bar - Fades out on scroll */}
         <AnimatePresence>
           {!scrolled && (
-            <motion.div
+            <Motion.div
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
@@ -49,33 +45,30 @@ export default function Navbar() {
                   <Mail size={11} /> muhammad.sherazz932@gmail.com
                 </a>
               </div>
-            </motion.div>
+            </Motion.div>
           )}
         </AnimatePresence>
 
         <div className="flex justify-center w-full max-w-[1440px] mx-auto">
-          <motion.div
-            layout
+          <div
             className={`w-full flex items-center justify-between transition-all duration-500 overflow-hidden ${scrolled
-                ? 'bg-black/80 backdrop-blur-xl border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.5)] rounded-full px-6 py-3 max-w-5xl'
+                ? 'bg-black/80 backdrop-blur-none md:backdrop-blur-xl border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.5)] rounded-full px-6 py-3 max-w-5xl'
                 : 'bg-transparent px-6 sm:px-8 lg:px-12 py-5'
               }`}
           >
-            {/* Logo */}
             <a href="/" className="flex items-center gap-3 group relative z-50">
-              <motion.div
+              <Motion.div
                 whileHover={{ scale: 1.05 }}
                 className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-sky-700 flex items-center justify-center shadow-[0_0_20px_rgba(14,165,233,0.3)] group-hover:shadow-[0_0_30px_rgba(14,165,233,0.6)] transition-all"
               >
                 <Flame size={20} className="text-white" />
-              </motion.div>
+              </Motion.div>
               <div className="leading-tight">
                 <span className="block text-white font-black text-sm tracking-tight">FIRESTICK</span>
                 <span className="block text-sky-400 text-[8px] font-bold tracking-[0.2em] uppercase">Sky Glass • 4K • 8K</span>
               </div>
             </a>
 
-            {/* Desktop Links */}
             <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
                 <a
@@ -88,50 +81,49 @@ export default function Navbar() {
                 </a>
               ))}
 
-              <motion.a
+              <Motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="/pricing"
                 className="bg-gradient-to-r from-sky-500 to-cyan-400 text-white font-bold text-xs uppercase tracking-wider px-6 py-2.5 rounded-full shadow-[0_0_20px_rgba(56,189,248,0.3)] hover:shadow-[0_0_30px_rgba(56,189,248,0.5)] transition-all"
               >
                 Get Started
-              </motion.a>
+              </Motion.a>
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               className="md:hidden relative z-50 p-2 text-white"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             >
               <AnimatePresence mode="wait">
                 {mobileMenuOpen ? (
-                  <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }}>
+                  <Motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }}>
                     <X size={24} />
-                  </motion.div>
+                  </Motion.div>
                 ) : (
-                  <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }}>
+                  <Motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }}>
                     <Menu size={24} />
-                  </motion.div>
+                  </Motion.div>
                 )}
               </AnimatePresence>
             </button>
-          </motion.div>
+          </div>
         </div>
-      </motion.nav>
+      </nav>
 
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-2xl flex flex-col justify-center items-center md:hidden"
+            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-none md:backdrop-blur-2xl flex flex-col justify-center items-center md:hidden"
           >
             <div className="flex flex-col items-center gap-8 w-full px-8">
               {navLinks.map((link) => (
-                <motion.a
+                <Motion.a
                   key={link.label}
                   whileHover={{ scale: 1.1 }}
                   href={link.href}
@@ -139,9 +131,9 @@ export default function Navbar() {
                   className="text-2xl font-black text-gray-300 hover:text-white uppercase tracking-widest"
                 >
                   {link.label}
-                </motion.a>
+                </Motion.a>
               ))}
-              <motion.a
+              <Motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="/pricing"
@@ -149,9 +141,9 @@ export default function Navbar() {
                 className="mt-6 w-full text-center bg-gradient-to-r from-sky-500 to-cyan-400 text-white font-black text-lg uppercase tracking-widest px-8 py-4 rounded-2xl shadow-[0_0_30px_rgba(56,189,248,0.3)]"
               >
                 Get Started
-              </motion.a>
+              </Motion.a>
             </div>
-          </motion.div>
+          </Motion.div>
         )}
       </AnimatePresence>
     </>

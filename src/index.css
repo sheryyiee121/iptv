@@ -34,6 +34,18 @@
   }
 }
 
+@media (max-width: 767px) {
+  [class*="blur-["] {
+    --tw-blur: blur(40px);
+  }
+
+  [class*="backdrop-blur"] {
+    --tw-backdrop-blur: blur(0px);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
 ::selection {
   background: rgba(14, 165, 233, 0.45);
   color: #fff;
