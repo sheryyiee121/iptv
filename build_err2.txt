@@ -1,0 +1,115 @@
+﻿
+> firestick@0.0.0 build
+> vite build
+
+[36mvite v8.3.2 [32mbuilding client environment for production...[36m[39m
+transforming...
+Γ£ô 16 modules transformed.
+node.exe : [31mΓ£ù[39m 
+Build failed in 457ms
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~
+    + CategoryInfo          : 
+    NotSpecified: ([31mΓ£ù  
+  [39m Build failed in 457m   
+ s:String) [], RemoteExcep    
+tion
+    + FullyQualifiedErrorId : 
+    NativeCommandError
+ 
+[31merror during build:
+[31mBuild failed with 1 
+error:
+
+[31m[UNRESOLVED_IMPORT] 
+[0mCould not resolve 
+'./components/Sliders' in 
+src/App.jsx
+   [38;5;246mΓò¡[0m[38;5;24
+6mΓöÇ[0m[38;5;246m[[0m 
+src/App.jsx:5:21 
+[38;5;246m][0m
+   [38;5;246mΓöé[0m
+ [38;5;246m5 Γöé[0m [38;5;2
+49mi[0m[38;5;249mm[0m[38;5
+;249mp[0m[38;5;249mo[0m[38
+;5;249mr[0m[38;5;249mt[0m[
+38;5;249m [0m[38;5;249mS[0m
+[38;5;249ml[0m[38;5;249mi[
+0m[38;5;249md[0m[38;5;249me
+[0m[38;5;249mr[0m[38;5;249
+ms[0m[38;5;249m [0m[38;5;2
+49mf[0m[38;5;249mr[0m[38;5
+;249mo[0m[38;5;249mm[0m[38
+;5;249m [0m"./components/Slid
+ers"[38;5;249m;[0m
+ [38;5;240m  Γöé[0m         
+            ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇ
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+ [38;5;240m  Γöé[0m         
+                       Γò░ΓöÇΓ
+öÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓ
+öÇ Module not found.
+ [38;5;240m  Γöé[0m 
+ [38;5;240m  Γöé[0m 
+[38;5;115mHelp[0m: 
+'src/App.jsx' is imported by 
+the following path:
+ [38;5;240m  Γöé[0m         
+- src/App.jsx
+ [38;5;240m  Γöé[0m         
+- src/main.jsx
+ [38;5;240m  Γöé[0m         
+- index.html
+[38;5;246mΓöÇΓöÇΓöÇΓò»[0m
+[31m
+    at aggregateBindingErrorsI
+ntoJsError (file:///C:/Users/H
+P/Desktop/all%20data/DevVerse/
+firestickpackages/firestick/no
+de_modules/rolldown/dist/share
+d/error-Bj1xBdEY.mjs:49:18)
+    at unwrapBindingResult (fi
+le:///C:/Users/HP/Desktop/all%
+20data/DevVerse/firestickpacka
+ges/firestick/node_modules/rol
+ldown/dist/shared/error-Bj1xBd
+EY.mjs:19:128)
+    at #build (file:///C:/User
+s/HP/Desktop/all%20data/DevVer
+se/firestickpackages/firestick
+/node_modules/rolldown/dist/sh
+ared/rolldown-jmAeXo_f.mjs:133
+:34)
+    at async buildEnvironment 
+(file:///C:/Users/HP/Desktop/a
+ll%20data/DevVerse/firestickpa
+ckages/firestick/node_modules/
+vite/dist/node/chunks/node.js:
+34490:66)
+    at async Object.build (fil
+e:///C:/Users/HP/Desktop/all%2
+0data/DevVerse/firestickpackag
+es/firestick/node_modules/vite
+/dist/node/chunks/node.js:3491
+1:19)
+    at async Object.buildApp (
+file:///C:/Users/HP/Desktop/al
+l%20data/DevVerse/firestickpac
+kages/firestick/node_modules/v
+ite/dist/node/chunks/node.js:3
+4908:153)
+    at async CAC.<anonymous> (
+file:///C:/Users/HP/Desktop/al
+l%20data/DevVerse/firestickpac
+kages/firestick/node_modules/v
+ite/dist/node/cli.js:780:3) {
+  errors: [Getter/Setter]
+}[39m

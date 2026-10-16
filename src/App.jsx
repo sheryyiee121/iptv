@@ -3,15 +3,18 @@ import SeoHead from './components/SeoHead'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Sliders from './components/Sliders'
+import Trending from './components/Trending'
+import Features from './components/Features'
+import FireStick from './components/FireStick'
+import Pricing from './components/Pricing'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
+import FloatingWhatsApp from './components/FloatingWhatsApp'
 
-const Trending = lazy(() => import('./components/Trending'))
-const Features = lazy(() => import('./components/Features'))
-const FireStick = lazy(() => import('./components/FireStick'))
-const Pricing = lazy(() => import('./components/Pricing'))
+// Only off-homepage routes stay lazy. Homepage sections must ship with the first JS
+// bundle: iOS Safari/Chrome (WebKit) can stall a React.lazy() chunk waterfall for
+// minutes, which left navbar + hero visible and the rest blank.
 const Blog = lazy(() => import('./components/Blog'))
-const Contact = lazy(() => import('./components/Contact'))
-const Footer = lazy(() => import('./components/Footer'))
-const FloatingWhatsApp = lazy(() => import('./components/FloatingWhatsApp'))
 const Setup = lazy(() => import('./components/Setup'))
 const FAQ = lazy(() => import('./components/FAQ'))
 
@@ -26,15 +29,15 @@ function PageLayout({ children }) {
       <Navbar />
       <Suspense fallback={<SectionFallback />}>
         {children}
-        <Footer />
-        <FloatingWhatsApp />
       </Suspense>
+      <Footer />
+      <FloatingWhatsApp />
     </div>
-  );
+  )
 }
 
 function App() {
-  const path = window.location.pathname.replace(/\/$/, "") || "/";
+  const path = window.location.pathname.replace(/\/$/, '') || '/'
 
   if (path === '/blog') {
     return (
@@ -86,22 +89,19 @@ function App() {
     )
   }
 
-  // Home Page Route
   return (
     <div className="w-full min-h-screen bg-[#0a0a0a] text-white antialiased overflow-x-hidden">
       <SeoHead />
       <Navbar />
       <Hero />
       <Sliders />
-      <Suspense fallback={<SectionFallback />}>
-        <Trending />
-        <Features />
-        <FireStick />
-        <Pricing />
-        <Contact />
-        <Footer />
-        <FloatingWhatsApp />
-      </Suspense>
+      <Trending />
+      <Features />
+      <FireStick />
+      <Pricing />
+      <Contact />
+      <Footer />
+      <FloatingWhatsApp />
     </div>
   )
 }

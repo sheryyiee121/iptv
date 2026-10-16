@@ -19,5 +19,7 @@ export default defineConfig({
       },
     },
   },
-  base: './',
+  // Absolute /assets URLs so iOS Safari does not resolve relative dynamic imports
+  // against the current path (which stalls extra chunks after navbar + hero).
+  base: '/',
 })
