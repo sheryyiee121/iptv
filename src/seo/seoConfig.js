@@ -155,6 +155,16 @@ export const SERVICE_KEYWORDS = [
   'IPTV quicktv packages UK',
   'quicktv packages UK',
   'quick tv packages firestick',
+  'sky glass firestick subscription price',
+  'firestick packages',
+  'firestick packages uk',
+  'sky glass firestick subscription',
+  'iptv sky glass firestick',
+  'sky glass iptv',
+  'sky glass subscription firestick',
+  'fire stick packages',
+  'how much is a firestick subscription',
+  'firestick tv packages',
 ]
 
 export const ALL_SEO_KEYWORDS = [...new Set([...RESEARCH_KEYWORDS, ...SERVICE_KEYWORDS])]

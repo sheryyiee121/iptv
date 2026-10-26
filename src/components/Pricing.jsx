@@ -1,5 +1,6 @@
 import { Check, Crown, Sparkles, Gem, Star } from 'lucide-react'
 import { getWhatsAppSendUrl } from '../lib/whatsapp'
+import { trackWhatsAppClick } from '../lib/analytics'
 
 function planSubscribeMessage(plan) {
   return `Hi! I'd like to subscribe to the *${plan.name}* plan (${plan.price} — ${plan.period}). Please send me details and next steps.`
@@ -135,6 +136,12 @@ export default function Pricing() {
                   href={getWhatsAppSendUrl(planSubscribeMessage(plan))}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackWhatsAppClick({
+                      linkUrl: getWhatsAppSendUrl(planSubscribeMessage(plan)),
+                      buttonLocation: `pricing_${plan.name.toLowerCase()}`,
+                    })
+                  }
                   className={`block text-center font-bold text-sm py-3.5 rounded-xl transition-all duration-300 ${plan.popular
                       ? 'bg-gradient-to-r from-sky-500 via-sky-400 to-cyan-400 text-white ring-1 ring-sky-400/30 hover:from-sky-400 hover:via-sky-300 hover:to-cyan-300 hover:shadow-[0_8px_30px_rgba(56,189,248,0.4)]'
                       : 'border border-white/10 text-white hover:bg-sky-500/10 hover:border-sky-400/30 hover:shadow-[0_4px_20px_rgba(56,189,248,0.15)]'

@@ -1,3 +1,5 @@
+import { trackWhatsAppClick } from './analytics'
+
 /**
  * WhatsApp Click-to-Chat (no server required)
  * @see https://developers.facebook.com/docs/whatsapp/click-to-chat
@@ -18,7 +20,8 @@ export function getWhatsAppSendUrl(text = DEFAULT_WHATSAPP_MESSAGE) {
   return `https://api.whatsapp.com/send?${params.toString()}`
 }
 
-export function openWhatsApp(text) {
+export function openWhatsApp(text, buttonLocation = 'contact') {
   const url = getWhatsAppSendUrl(text || DEFAULT_WHATSAPP_MESSAGE)
+  trackWhatsAppClick({ linkUrl: url, buttonLocation })
   window.open(url, '_blank', 'noopener,noreferrer')
 }

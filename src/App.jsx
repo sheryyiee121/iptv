@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import SeoHead from './components/SeoHead'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -10,6 +10,7 @@ import Pricing from './components/Pricing'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import FloatingWhatsApp from './components/FloatingWhatsApp'
+import { initSpaPageViews } from './lib/analytics'
 
 // Only off-homepage routes stay lazy. Homepage sections must ship with the first JS
 // bundle: iOS Safari/Chrome (WebKit) can stall a React.lazy() chunk waterfall for
@@ -24,7 +25,7 @@ function SectionFallback() {
 
 function PageLayout({ children }) {
   return (
-    <div className="w-full min-h-screen bg-[#0a0a0a] text-white antialiased overflow-x-hidden">
+    <div className="w-full min-h-screen bg-[#0a0a0a] text-white antialiased">
       <SeoHead />
       <Navbar />
       <Suspense fallback={<SectionFallback />}>
@@ -37,6 +38,8 @@ function PageLayout({ children }) {
 }
 
 function App() {
+  useEffect(() => initSpaPageViews(), [])
+
   const path = window.location.pathname.replace(/\/$/, '') || '/'
 
   if (path === '/blog') {
@@ -90,7 +93,7 @@ function App() {
   }
 
   return (
-    <div className="w-full min-h-screen bg-[#0a0a0a] text-white antialiased overflow-x-hidden">
+    <div className="w-full min-h-screen bg-[#0a0a0a] text-white antialiased">
       <SeoHead />
       <Navbar />
       <Hero />
