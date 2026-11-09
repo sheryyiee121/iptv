@@ -2,14 +2,6 @@
   "buildCommand": "npm run build",
   "outputDirectory": "out",
   "framework": "vite",
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.quicktvpackages.co.uk" }],
-      "destination": "https://quicktvpackages.co.uk/:path*",
-      "permanent": true
-    }
-  ],
   "rewrites": [
     {
       "source": "/((?!assets/).*)",
@@ -68,15 +60,13 @@
     {
       "source": "/index.html",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" },
-        { "key": "Expires", "value": "Thu, 31 Dec 2037 23:55:55 GMT" }
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]
     },
     {
       "source": "/",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" },
-        { "key": "Expires", "value": "Thu, 31 Dec 2037 23:55:55 GMT" }
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]
     }
   ]

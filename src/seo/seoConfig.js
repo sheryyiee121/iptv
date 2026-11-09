@@ -3,7 +3,7 @@
  * Note: Google ignores meta keywords; Bing may use lightly. Title + description + body copy matter most.
  */
 
-export const SITE_URL = 'https://quicktvpackages.co.uk'
+export const SITE_URL = 'https://www.quicktvpackages.co.uk'
 export const SITE_NAME = 'Firestick Packages Store UK'
 
 /** Unique search phrases from your Wordstream list (deduped; noisy duplicates removed) */
