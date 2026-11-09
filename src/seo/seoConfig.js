@@ -178,6 +178,35 @@ export const SEO_DESCRIPTION =
 export const OG_IMAGE =
   'https://images.unsplash.com/photo-1593784991095-a205069470b6?w=1200&q=80'
 
+/** Inner-page SEO only. Homepage title + description are never overridden. */
+export const PAGE_SEO = {
+  '/pricing': {
+    title: 'Firestick IPTV Packages UK Pricing | Sky Glass 4K 8K | From £19',
+    description:
+      'Firestick packages UK prices: Basic £19/month, Standard £49/6 months, Premium £69/year, Ultimate £89. Sky Glass, Fire TV Stick 4K & 8K IPTV.',
+  },
+  '/blog': {
+    title: 'IPTV UK Guides | Firestick Packages, Sky Glass & Subscription Prices',
+    description:
+      'UK IPTV guides: Firestick packages, Sky Glass subscription price, how much a Firestick subscription costs, and Fire TV Stick setup.',
+  },
+  '/setup': {
+    title: 'Fire Stick IPTV Setup Guide UK | Amazon Fire TV Stick 4K',
+    description:
+      'Step-by-step Fire Stick IPTV setup for Amazon Fire TV Stick 4K and Sky Glass in the UK. Instant activation and 24/7 support.',
+  },
+  '/faq': {
+    title: 'Firestick IPTV FAQ UK | Sky Glass, Devices & Support',
+    description:
+      'FAQ for Firestick IPTV UK: devices, Sky Glass, contracts, activation, 4K/8K streaming, and multi-TV Firestick packages.',
+  },
+  '/contact': {
+    title: 'Contact Firestick IPTV UK | WhatsApp Support | Quick TV Packages',
+    description:
+      'Contact Quick TV Packages for Firestick, Sky Glass and IPTV UK support. WhatsApp activation and UK-based help.',
+  },
+}
+
 export function keywordsMetaContent(maxLength = 3500) {
   const s = ALL_SEO_KEYWORDS.join(', ')
   return s.length <= maxLength ? s : `${s.slice(0, maxLength - 3)}...`

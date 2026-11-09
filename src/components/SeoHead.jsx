@@ -5,10 +5,12 @@ import {
   SEO_TITLE,
   SEO_DESCRIPTION,
   OG_IMAGE,
+  PAGE_SEO,
   keywordsMetaContent,
   ALL_SEO_KEYWORDS,
 } from '../seo/seoConfig'
 import { blogPosts } from '../data/blogPosts'
+import { faqs } from '../data/faqs'
 
 function upsertMeta(attrName, key, content) {
   let el = document.querySelector(`meta[${attrName}="${key}"]`)
@@ -32,26 +34,34 @@ function upsertLink(rel, href) {
 
 export default function SeoHead() {
   useEffect(() => {
-    document.title = SEO_TITLE
-    upsertMeta('name', 'description', SEO_DESCRIPTION)
+    const path = window.location.pathname.replace(/\/$/, '') || '/'
+    const page = PAGE_SEO[path]
+    const title = page?.title || SEO_TITLE
+    const description = page?.description || SEO_DESCRIPTION
+    const canonical = path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`
+
+    document.title = title
+    upsertMeta('name', 'description', description)
     upsertMeta('name', 'keywords', keywordsMetaContent())
     upsertMeta('name', 'robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1')
     upsertMeta('name', 'author', SITE_NAME)
 
     upsertMeta('property', 'og:type', 'website')
-    upsertMeta('property', 'og:url', SITE_URL + '/')
-    upsertMeta('property', 'og:title', SEO_TITLE)
-    upsertMeta('property', 'og:description', SEO_DESCRIPTION)
+    upsertMeta('property', 'og:url', canonical)
+    upsertMeta('property', 'og:title', title)
+    upsertMeta('property', 'og:description', description)
     upsertMeta('property', 'og:image', OG_IMAGE)
+    upsertMeta('property', 'og:image:width', '1200')
+    upsertMeta('property', 'og:image:height', '800')
     upsertMeta('property', 'og:site_name', SITE_NAME)
     upsertMeta('property', 'og:locale', 'en_GB')
 
     upsertMeta('name', 'twitter:card', 'summary_large_image')
-    upsertMeta('name', 'twitter:title', SEO_TITLE)
-    upsertMeta('name', 'twitter:description', SEO_DESCRIPTION)
+    upsertMeta('name', 'twitter:title', title)
+    upsertMeta('name', 'twitter:description', description)
     upsertMeta('name', 'twitter:image', OG_IMAGE)
 
-    upsertLink('canonical', SITE_URL + '/')
+    upsertLink('canonical', canonical)
 
     const blogSchemas = blogPosts.map((post) => ({
       '@type': 'BlogPosting',
@@ -61,10 +71,10 @@ export default function SeoHead() {
       datePublished: post.date,
       author: { '@type': 'Organization', name: SITE_NAME },
       publisher: { '@type': 'Organization', name: SITE_NAME, url: `${SITE_URL}/` },
-      mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/#blog-${post.slug}` },
+      mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog` },
       keywords: post.keywords.join(', '),
       inLanguage: 'en-GB',
-      url: `${SITE_URL}/#blog-${post.slug}`,
+      url: `${SITE_URL}/blog`,
     }))
 
     const jsonLd = {
@@ -98,11 +108,23 @@ export default function SeoHead() {
           '@type': 'Blog',
           name: 'IPTV Packages UK Guides',
           description: 'UK IPTV guides for Fire Stick, Sky Glass, Sky Sports, and premium streaming packages.',
-          url: `${SITE_URL}/#blog`,
+          url: `${SITE_URL}/blog`,
           inLanguage: 'en-GB',
           blogPost: blogSchemas,
         },
         ...blogSchemas,
+        ...(path === '/faq'
+          ? [
+              {
+                '@type': 'FAQPage',
+                mainEntity: faqs.map((item) => ({
+                  '@type': 'Question',
+                  name: item.q,
+                  acceptedAnswer: { '@type': 'Answer', text: item.a },
+                })),
+              },
+            ]
+          : []),
       ],
     }
 
