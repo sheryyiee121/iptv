@@ -130,18 +130,6 @@ export default function Sliders() {
           color: #3b82f6;
         }
 
-        .seo-hidden {
-          position: absolute;
-          width: 1px;
-          height: 1px;
-          padding: 0;
-          margin: -1px;
-          overflow: hidden;
-          clip: rect(0, 0, 0, 0);
-          white-space: nowrap;
-          border: 0;
-        }
-
         .movie-card {
           flex-shrink: 0;
           width: 170px;
@@ -213,14 +201,6 @@ export default function Sliders() {
         }
       `}</style>
             <section className="sliders-section" aria-label="Premium Firestick Packages and IPTV Subscriptions">
-
-                {/* Visually hidden text specifically for SEO indexing of target keywords */}
-                <div className="seo-hidden">
-                    <h2>Best Firestick Packages & IPTV Subscription UK</h2>
-                    <p>
-                        Looking for the best UK IPTV deals? Enhance your viewing experience with our premium firestick packages and top-rated IPTV subscription. Enjoy over 150,000 VOD titles, live sports, and 22,000+ channels in 4K quality effortlessly.
-                    </p>
-                </div>
 
                 <div className="slider-track-wrapper">
                     <div className="slider-track scroll-right">

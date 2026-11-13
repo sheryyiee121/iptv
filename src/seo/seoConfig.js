@@ -205,6 +205,21 @@ export const PAGE_SEO = {
     description:
       'Contact Quick TV Packages for Firestick, Sky Glass and IPTV UK support. WhatsApp activation and UK-based help.',
   },
+  '/about': {
+    title: 'About Quick TV Packages | Firestick & Sky Glass IPTV UK',
+    description:
+      'About Quick TV Packages: UK IPTV for Amazon Firestick, Sky Glass and Smart TVs. Contact, support hours and how we work.',
+  },
+  '/terms': {
+    title: 'Terms & Conditions | Quick TV Packages',
+    description:
+      'Terms and conditions for Quick TV Packages IPTV subscriptions, including our 15-day refund policy if the service does not work.',
+  },
+  '/privacy': {
+    title: 'Privacy Policy | Quick TV Packages',
+    description:
+      'Privacy policy for Quick TV Packages: what data we collect via the contact form, WhatsApp, analytics and ads, and how to contact us.',
+  },
 }
 
 export function keywordsMetaContent(maxLength = 3500) {

@@ -32,12 +32,12 @@ function upsertLink(rel, href) {
   el.setAttribute('href', href)
 }
 
-export default function SeoHead() {
+export default function SeoHead({ title: titleProp, description: descProp, path: pathProp } = {}) {
   useEffect(() => {
-    const path = window.location.pathname.replace(/\/$/, '') || '/'
+    const path = pathProp || window.location.pathname.replace(/\/$/, '') || '/'
     const page = PAGE_SEO[path]
-    const title = page?.title || SEO_TITLE
-    const description = page?.description || SEO_DESCRIPTION
+    const title = titleProp || page?.title || SEO_TITLE
+    const description = descProp || page?.description || SEO_DESCRIPTION
     const canonical = path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`
 
     document.title = title
@@ -53,6 +53,7 @@ export default function SeoHead() {
     upsertMeta('property', 'og:image', OG_IMAGE)
     upsertMeta('property', 'og:image:width', '1200')
     upsertMeta('property', 'og:image:height', '800')
+    upsertMeta('property', 'og:image:alt', title)
     upsertMeta('property', 'og:site_name', SITE_NAME)
     upsertMeta('property', 'og:locale', 'en_GB')
 
@@ -60,6 +61,7 @@ export default function SeoHead() {
     upsertMeta('name', 'twitter:title', title)
     upsertMeta('name', 'twitter:description', description)
     upsertMeta('name', 'twitter:image', OG_IMAGE)
+    upsertMeta('name', 'twitter:image:alt', title)
 
     upsertLink('canonical', canonical)
 
@@ -140,7 +142,7 @@ export default function SeoHead() {
     return () => {
       // keep meta on unmount for SPA; optional cleanup omitted so refresh/HMR keeps tags
     }
-  }, [])
+  }, [titleProp, descProp, pathProp])
 
   return null
 }

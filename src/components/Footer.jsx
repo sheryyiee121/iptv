@@ -14,7 +14,7 @@ export default function Footer() {
               <p className="text-white/70 mt-2 text-lg">Join thousands of happy customers across the UK.</p>
             </div>
             <a
-              href="#pricing"
+              href="/pricing"
               className="bg-white text-sky-700 font-bold px-10 py-4 rounded-xl hover:bg-sky-50 hover:shadow-[0_8px_30px_rgba(255,255,255,0.25)] transition-all whitespace-nowrap flex items-center gap-2.5 shadow-xl ring-1 ring-white/20"
             >
               <Play size={16} className="fill-sky-700" />
@@ -45,10 +45,15 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold mb-5 text-xs uppercase tracking-[0.2em]">Quick Links</h4>
             <ul className="space-y-3.5">
-              {['Home', 'Pricing', 'Blog', 'Contact'].map(item => (
-                <li key={item}>
-                  <a href={`#${item.toLowerCase()}`} className="text-gray-500 hover:text-sky-400 transition-colors text-sm font-medium">
-                    {item}
+              {[
+                { label: 'Home', href: '/' },
+                { label: 'Pricing', href: '/pricing' },
+                { label: 'Blog', href: '/blog' },
+                { label: 'Contact', href: '/contact' },
+              ].map(item => (
+                <li key={item.label}>
+                  <a href={item.href} className="text-gray-500 hover:text-sky-400 transition-colors text-sm font-medium">
+                    {item.label}
                   </a>
                 </li>
               ))}
@@ -58,10 +63,16 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold mb-5 text-xs uppercase tracking-[0.2em]">Legal</h4>
             <ul className="space-y-3.5">
-              {['About Us', 'FAQ', 'Terms & Conditions', 'Privacy Policy'].map(item => (
-                <li key={item}>
-                  <a href="#" className="text-gray-500 hover:text-sky-400 transition-colors text-sm font-medium">
-                    {item}
+              {[
+                { label: 'About Us', href: '/about' },
+                { label: 'FAQ', href: '/faq' },
+                { label: 'Terms & Conditions', href: '/terms' },
+                { label: 'Privacy Policy', href: '/privacy' },
+                { label: 'Refund Policy', href: '/terms#refund' },
+              ].map(item => (
+                <li key={item.label}>
+                  <a href={item.href} className="text-gray-500 hover:text-sky-400 transition-colors text-sm font-medium">
+                    {item.label}
                   </a>
                 </li>
               ))}

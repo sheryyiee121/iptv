@@ -18,6 +18,9 @@ import { initSpaPageViews } from './lib/analytics'
 const Blog = lazy(() => import('./components/Blog'))
 const Setup = lazy(() => import('./components/Setup'))
 const FAQ = lazy(() => import('./components/FAQ'))
+const About = lazy(() => import('./components/About'))
+const Terms = lazy(() => import('./components/Terms'))
+const Privacy = lazy(() => import('./components/Privacy'))
 
 function SectionFallback() {
   return <div className="min-h-[200px]" aria-hidden="true" />
@@ -88,6 +91,30 @@ function App() {
         <div className="pt-16 min-h-[70vh]">
           <Contact />
         </div>
+      </PageLayout>
+    )
+  }
+
+  if (path === '/about') {
+    return (
+      <PageLayout>
+        <About />
+      </PageLayout>
+    )
+  }
+
+  if (path === '/terms') {
+    return (
+      <PageLayout>
+        <Terms />
+      </PageLayout>
+    )
+  }
+
+  if (path === '/privacy') {
+    return (
+      <PageLayout>
+        <Privacy />
       </PageLayout>
     )
   }

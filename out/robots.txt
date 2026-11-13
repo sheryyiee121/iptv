@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://quicktvpackages.co.uk/sitemap.xml
+Sitemap: https://www.quicktvpackages.co.uk/sitemap.xml

@@ -76,7 +76,7 @@ export default function Terms() {
 
                 <div className="space-y-10">
                     {sections.map((section) => (
-                        <section key={section.heading}>
+                        <section key={section.heading} id={section.heading.startsWith('5. Refund') ? 'refund' : undefined}>
                             <h2 className="text-xl font-bold text-white mb-3">{section.heading}</h2>
                             <div className="space-y-4">
                                 {section.paragraphs.map((p, i) => (
