@@ -1,0 +1,143 @@
+<!-- PASTE-READY FIX for QuickTVPackages — Product schema for /pricing
+     Site: https://www.quicktvpackages.co.uk/ (friend's site — Kyle took on the SEO project 13 Nov 2026)
+     Source: SEO + AEO Improvement Plan, 13 Nov 2026, Technique 9 (~/workspace/your_files/quicktvpackages-seo-audit/quicktvpackages-seo-aeo-improvement-plan.pdf)
+     Prices verified in the 13 Nov 2026 audit (p.5): Basic £19 / 1 month (2 devices),
+     Standard £49 / 6 months (3 devices), Premium £69 / 1 year (5 devices),
+     Ultimate £89 / 1 year (unlimited, 8K, VIP support). 'Buy 1 year, 2 months FREE'
+     is claimed on Premium. Prices are consistent across blog + pricing page.
+
+     *** READ BEFORE DEPLOYING ***
+     1) REFUND PAGE FIRST. The audit found NO refund policy on the site and all footer
+        legal links are dead (href="#"). The hasMerchantReturnPolicy block below says
+        7-day / free return / full refund, exactly as Technique 9 specifies — but do NOT
+        deploy it until a real refund page exists saying the same thing. If your friend's
+        actual policy is different (e.g. 14 days, or no refunds on digital activation),
+        change merchantReturnDays / returnPolicyCategory below to match the real page.
+        Schema must never promise what the site doesn't offer.
+     2) RAW HTML ONLY. Today every QuickTV route serves the same 2,199-byte shell and all
+        schema lives in the JavaScript bundle, so Google never sees it in the raw HTML.
+        Paste this block into the RAW HTML of /pricing — which means it only works
+        properly once the site is pre-rendered (Technique 1, the biggest fix in the plan).
+        Do not paste it into the JS bundle. Until pre-render lands, keep this file ready.
+     3) IMAGE: there is no og:image / product image on the site yet (audit: no OG or
+        Twitter tags at all). The "image" line is left OUT on purpose — add a real image
+        URL once one exists; do not guess one. Google will flag it as non-critical only.
+     4) After deploying + pre-rendering, check Google's Rich Results Test on
+        https://www.quicktvpackages.co.uk/pricing — it must show a valid Product
+        with 4 offers, and Search Console must show no Merchant listings error.
+        (Same pattern that fixed BlasterTV's merchant listings on 3 Nov 2026.) -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "QuickTVPackages IPTV Subscription",
+  "description": "IPTV subscription for Firestick and Sky Glass in the UK. Four plans from £19, with a choice of 2, 3 or 5 devices.",
+  "brand": {
+    "@type": "Brand",
+    "name": "QuickTVPackages"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Basic — 1 month, 2 devices",
+      "price": "19",
+      "priceCurrency": "GBP",
+      "availability": "https://schema.org/InStock",
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "GBP" },
+        "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "MIN" },
+          "transitTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 5, "unitCode": "MIN" }
+        }
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "GB",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnFees": "https://schema.org/FreeReturn",
+        "refundType": "https://schema.org/FullRefund"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "Standard — 6 months, 3 devices",
+      "price": "49",
+      "priceCurrency": "GBP",
+      "availability": "https://schema.org/InStock",
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "GBP" },
+        "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "MIN" },
+          "transitTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 5, "unitCode": "MIN" }
+        }
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "GB",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnFees": "https://schema.org/FreeReturn",
+        "refundType": "https://schema.org/FullRefund"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "Premium — 1 year, 5 devices",
+      "price": "69",
+      "priceCurrency": "GBP",
+      "availability": "https://schema.org/InStock",
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "GBP" },
+        "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "MIN" },
+          "transitTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 5, "unitCode": "MIN" }
+        }
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "GB",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnFees": "https://schema.org/FreeReturn",
+        "refundType": "https://schema.org/FullRefund"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "Ultimate — 1 year, unlimited devices, 8K, VIP support",
+      "price": "89",
+      "priceCurrency": "GBP",
+      "availability": "https://schema.org/InStock",
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "GBP" },
+        "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "MIN" },
+          "transitTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 5, "unitCode": "MIN" }
+        }
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "GB",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnFees": "https://schema.org/FreeReturn",
+        "refundType": "https://schema.org/FullRefund"
+      }
+    }
+  ]
+}
+</script>

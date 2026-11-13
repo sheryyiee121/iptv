@@ -215,6 +215,21 @@ export const PAGE_SEO = {
     description:
       'Terms and conditions for Quick TV Packages IPTV subscriptions, including our 15-day refund policy if the service does not work.',
   },
+  '/refund': {
+    title: 'Refund Policy | Quick TV Packages',
+    description:
+      '15-day refund policy for Quick TV Packages IPTV subscriptions if the service does not work.',
+  },
+  '/refund-policy': {
+    title: 'Refund Policy | Quick TV Packages',
+    description:
+      '15-day refund policy for Quick TV Packages IPTV subscriptions if the service does not work.',
+  },
+  '/refunds-policy': {
+    title: 'Refund Policy | Quick TV Packages',
+    description:
+      '15-day refund policy for Quick TV Packages IPTV subscriptions if the service does not work.',
+  },
   '/privacy': {
     title: 'Privacy Policy | Quick TV Packages',
     description:

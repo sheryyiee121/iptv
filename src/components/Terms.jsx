@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import SeoHead from './SeoHead'
 
 const LAST_UPDATED = '14 October 2026'
@@ -61,7 +62,27 @@ const sections = [
     },
 ]
 
+function shouldScrollToRefund() {
+    const path = window.location.pathname.replace(/\/$/, '') || '/'
+    return window.location.hash === '#refund' || path === '/refund' || path === '/refund-policy' || path === '/refunds-policy'
+}
+
 export default function Terms() {
+    useEffect(() => {
+        if (!shouldScrollToRefund()) return
+
+        const scroll = () => {
+            document.getElementById('refund')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+
+        const frame = requestAnimationFrame(scroll)
+        const timer = window.setTimeout(scroll, 150)
+        return () => {
+            cancelAnimationFrame(frame)
+            window.clearTimeout(timer)
+        }
+    }, [])
+
     return (
         <main className="relative bg-[#0a0a0a] pt-32 pb-24">
             <SeoHead
@@ -76,7 +97,11 @@ export default function Terms() {
 
                 <div className="space-y-10">
                     {sections.map((section) => (
-                        <section key={section.heading} id={section.heading.startsWith('5. Refund') ? 'refund' : undefined}>
+                        <section
+                            key={section.heading}
+                            id={section.heading.startsWith('5. Refund') ? 'refund' : undefined}
+                            className={section.heading.startsWith('5. Refund') ? 'scroll-mt-28' : undefined}
+                        >
                             <h2 className="text-xl font-bold text-white mb-3">{section.heading}</h2>
                             <div className="space-y-4">
                                 {section.paragraphs.map((p, i) => (

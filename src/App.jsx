@@ -103,7 +103,7 @@ function App() {
     )
   }
 
-  if (path === '/terms') {
+  if (path === '/terms' || path === '/refund' || path === '/refund-policy' || path === '/refunds-policy') {
     return (
       <PageLayout>
         <Terms />

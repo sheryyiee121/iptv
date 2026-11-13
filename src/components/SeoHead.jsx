@@ -38,7 +38,9 @@ export default function SeoHead({ title: titleProp, description: descProp, path:
     const page = PAGE_SEO[path]
     const title = titleProp || page?.title || SEO_TITLE
     const description = descProp || page?.description || SEO_DESCRIPTION
-    const canonical = path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`
+    const canonicalPath =
+      path === '/refund' || path === '/refund-policy' || path === '/refunds-policy' ? '/terms' : path
+    const canonical = canonicalPath === '/' ? `${SITE_URL}/` : `${SITE_URL}${canonicalPath}`
 
     document.title = title
     upsertMeta('name', 'description', description)
